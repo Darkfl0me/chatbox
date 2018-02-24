@@ -1,14 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import configureStore from './store';
+import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import registerServiceWorker from './registerServiceWorker';
 
+const initialState = {
+    user: null,
+    authenticated: false
+}
+
+const store = configureStore(initialState);
+
 ReactDOM.render(
-    <BrowserRouter>
+    <Provider store={store}>
         <App />
-    </BrowserRouter>
+    </Provider>
     , document.getElementById('root')
 );
 registerServiceWorker();
