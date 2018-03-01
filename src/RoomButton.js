@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Modal, Button, Icon, Form, Input, Container } from 'semantic-ui-react';
+import { Modal, Button, Icon, Form, Input, Checkbox, Label } from 'semantic-ui-react';
 import './styles.css'
 
 const RoomButton = (props) => {
@@ -16,9 +16,16 @@ const RoomButton = (props) => {
                     <Modal.Header className=''>
                         Create a room for your next big project
                     </Modal.Header>
-                    <Form className='formDesign'>
+                    <Form className='formDesign' onSubmit={props.handleSubmit}>
                         <Form.Input label='Room Name' placeholder='Room Name' 
-                            name='name' value={props.name} inline onChange={props.handleChange}/>
+                            name='roomName' value={props.name} inline onChange={props.handleChange}
+                        />
+                        <Checkbox 
+                            label='Private Room'
+                            name='privateRoom'
+                            type='checkbox' 
+                            checked={props.privateRoom}
+                        />
                         <Form.Button type='submit' color='green'>
                             Submit
                         </Form.Button>

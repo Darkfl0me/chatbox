@@ -9,7 +9,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 const initialState = {
     user: null,
-    authenticated: false
+    authenticated: undefined
 }
 
 const store = configureStore(initialState);

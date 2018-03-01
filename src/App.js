@@ -17,8 +17,10 @@ class App extends Component {
     let app;
     if(this.props.authUser === true) {
       app = <Explore />
-    } else {
+    } else if(this.props.authUser === false){
       app = <LoginPage />
+    } else {
+      app = <Loader />
     }
     return (
       <div>
@@ -31,8 +33,8 @@ class App extends Component {
 function mapStateToProps(state) {
     return {
 		  authUser: state.authenticated,
-		  //userProfileLoading: state.userProfileLoading,
-		  user: state.user
+		  //userProfileLoading: state.userProfileLoading
+		  //user: state.user.username
 	}    
 }
 
