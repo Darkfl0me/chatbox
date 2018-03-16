@@ -1,4 +1,4 @@
-import {} from './types';
+import { ADD_ROOM } from './types';
 
 export function addRoom(roomData) {
     return {

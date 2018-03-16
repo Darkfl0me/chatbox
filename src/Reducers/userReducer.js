@@ -29,7 +29,7 @@ export function userProfileLoading(state={}, action) {
 export function user(state={}, action) {
     switch(action.type) {
         case USER_PROFILE_LOADED: {
-            return {...state, user: action.payload}
+            return action.payload
         }
         default: return state;
     }

@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
-import { Container, Grid } from 'semantic-ui-react'
+import { connect } from 'react-redux';
+import _ from 'lodash';
+import { Container, Grid, Sidebar, List,Segment } from 'semantic-ui-react'
 import TopBar from './TopBar';
 import MenuBar from './MenuBar';
 import MessageBox from './MessageBox';
-import ActivityBox from './ActivityBox'
+import ActivityBox from './ActivityBox';
+import JoinRoom from './JoinRoom';
+import Home from './home';
 
 class Explore extends React.Component {
     render() {
+        let screen = null;
+        if(_.isEmpty(this.props.room)) {
+            screen = <Home />
+        } else {
+            screen = <MessageBox />
+        }
         return (
             <div>
                 <TopBar />
@@ -14,16 +24,19 @@ class Explore extends React.Component {
                     <Grid.Column width={1} floated='left'>
                         <MenuBar />
                     </Grid.Column>
-                    <Grid.Column width={11}>
-                        <MessageBox />
-                    </Grid.Column>
-                    <Grid.Column width={4}>
-                        <ActivityBox />
-                    </Grid.Column>
+                    <Grid.Column width={15}>
+                        {screen}
+                    </Grid.Column>                        
                 </Grid> 
             </div>
         );
     }
 }
 
-export default Explore;
+function mapStateToProps(state) {
+    return {
+        room: state.room
+    }
+}
+
+export default connect(mapStateToProps,null)(Explore);

@@ -9,11 +9,13 @@ const SearchButton = (props) => (
             </Button>)}
         >   
             <Segment style={{ left: '5%', position: 'fixed', top: '5%', zIndex: 1000}}>
-                <Search name={props.name}
+                <Search category
+                    name={props.name}
                     loading={props.loading}
                     results={props.results}
                     value={props.Search}
                     onSearchChange={props.handleChange}
+                    onResultSelect={props.handleResultSelect}
                 />
             </Segment>
         </TransitionablePortal>

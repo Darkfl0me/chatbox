@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import reducers from '../Reducers';
 import * as Actions from '../Actions';
 import logger from 'redux-logger';
@@ -12,7 +13,9 @@ export default function configureStore(initialState) {
     const store = createStore(
         reducers,
         initialState,
-        applyMiddleware(...middleWare)
+        composeWithDevTools(
+            applyMiddleware(...middleWare)
+        )
     );
     store.dispatch(Actions.verifyAuth());
     return store;

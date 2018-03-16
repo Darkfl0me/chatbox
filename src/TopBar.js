@@ -7,7 +7,7 @@ import { logoutUser } from './Actions';
 
 
 const Setting = (props) => (
-    <Button icon labelPosition='right' size='tiny' floated='right' onClick={props.logoutUser}>
+    <Button icon labelPosition='right' size='tiny' floated='right' color='red' onClick={props.logoutUser}>
         Logout
         <Icon name='sign out'/>
     </Button>

@@ -6,6 +6,10 @@ const RoomButton = (props) => {
     const modalDesign = {
         padding: '5px'
     }
+    const options = [{text:'web'},
+                     {text:'ios'},
+                     {text:'android'}
+                    ]
     return (
         <div className=''>
                 <Modal size='tiny' trigger={
@@ -19,6 +23,10 @@ const RoomButton = (props) => {
                     <Form className='formDesign' onSubmit={props.handleSubmit}>
                         <Form.Input label='Room Name' placeholder='Room Name' 
                             name='roomName' value={props.name} inline onChange={props.handleChange}
+                        />
+                        <Form.Dropdown placeholder='Select Category' 
+                            search
+                            options={options}
                         />
                         <Checkbox 
                             label='Private Room'

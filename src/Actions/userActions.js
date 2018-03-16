@@ -38,7 +38,9 @@ export function loginUser() {
                     //console.log(user);
                     axios.post('http://localhost:3001/users/', {
                         uid: res.user.providerData[0].uid,
-                        displayName: res.additionalUserInfo.profile.name
+                        displayName: res.additionalUserInfo.profile.name,
+                        username: res.additionalUserInfo.username,
+                        token: res.credential.accessToken
                     }).then((res) => {
                         console.log(res.data);
                         dispatch(userProfileLoaded(res.data));
